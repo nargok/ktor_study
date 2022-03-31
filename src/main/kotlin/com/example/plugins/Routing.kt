@@ -3,6 +3,7 @@ package com.example.plugins
 import io.ktor.server.routing.*
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
 import io.ktor.server.locations.*
 import io.ktor.server.response.*
 import io.ktor.server.request.*
@@ -18,6 +19,13 @@ fun Application.configureRouting() {
             val name = call.parameters["name"]
             call.respondText("Hello ${name}")
         }
+        authenticate {
+            get("/authenticated") {
+                val user = call.authentication.principal<UserIdPrincipal>()
+                call.respondText("authenticated id=${user?.name}")
+            }
+        }
+
         greetingRoute()
         userRoute()
         bookRoute()
