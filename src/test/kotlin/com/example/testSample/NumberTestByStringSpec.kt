@@ -9,5 +9,9 @@ class NumberTestByStringSpec : StringSpec() {
             val number = Number(1)
             number.isOdd() shouldBe true
         }
+        "isOdd:: when value is even number then return false" {
+            val number = Number(2)
+            number.isOdd() shouldBe false
+        }
     }
 }
