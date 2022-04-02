@@ -30,20 +30,15 @@ fun Application.configureRouting() {
         userRoute()
         bookRoute()
     }
-    routing {
-    }
-
 }
 
 fun Routing.greetingRoute() {
-
     route("greeting") {
         get("/hello") {
             call.respondText("Hello Ktor!")
         }
     }
 }
-
 
 class UserLocation {
     @Location("/user/{id}")
