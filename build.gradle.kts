@@ -2,6 +2,7 @@ val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
 val exposedVersion: String by project
+val kotestVersion: String by project
 
 plugins {
     application
@@ -36,4 +37,9 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.23")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.2.2")
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
