@@ -38,6 +38,7 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
     testImplementation("io.kotest:kotest-runner-junit5-jvm:5.2.2")
+    testImplementation("io.mockk:mockk:1.12.3")
 }
 
 tasks.withType<Test>().configureEach {
